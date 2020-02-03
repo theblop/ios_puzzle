@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-//    var items = ["A", "B", "C", "D"]
     var items = ["puzz000", "puzz001", "puzz002", "puzz003"]
     var rows = 2
     var cols = 2
@@ -26,11 +25,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        //cell.cellContent.text = items[indexPath.item]
         let img = items[indexPath.item]
-        //print("xxx: \(img) : " + String(indexPath.item))
         cell.cellImage.image = UIImage(named: img)
-        //cell.cellImage.directionalLayoutMargins = NSDirectionalEdgeInsets(top:0, leading:0, bottom:0, trailing:0)
         return cell
     }
 
