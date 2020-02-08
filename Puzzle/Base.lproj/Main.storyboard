@@ -51,9 +51,13 @@
                         <connections>
                             <outlet property="dataSource" destination="BYZ-38-t0r" id="knp-9h-rHD"/>
                             <outlet property="delegate" destination="BYZ-38-t0r" id="Mc0-XV-pux"/>
-                            <outlet property="dragDelegate" destination="BYZ-38-t0r" id="Aj9-vV-V1l"/>
+                            <outlet property="dragDelegate" destination="BYZ-38-t0r" id="QfR-W2-BBu"/>
+                            <outlet property="dropDelegate" destination="BYZ-38-t0r" id="If4-h5-dei"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="collection_view" destination="fZD-qm-QUY" id="ti5-Gk-SeC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,15 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
 
     var items = ["puzz000", "puzz001", "puzz002", "puzz003"]
+    //var itemsImg: [UIImage?] = []
     var rows = 2
     var cols = 2
+    
+    @IBOutlet var collection_view: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //itemsImg =  items.map { UIImage(named: $0) }
+        collection_view.dragInteractionEnabled = true
+        collection_view.dragDelegate = self
+        collection_view.dropDelegate = self
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,5 +57,45 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return CGSize(width: w, height: w)
     }
     
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let item = self.items[indexPath.row]
+        
+        let itemProvider = NSItemProvider(object: item as NSString)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = item
+
+        print("DRAG")
+        return [dragItem]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        print("DROP")
+        var destIndexPath: IndexPath
+        if let IndexPath = coordinator.destinationIndexPath {
+            destIndexPath = IndexPath
+        } else {
+            let row = collectionView.numberOfItems(inSection: 0)
+            destIndexPath = IndexPath(item: row - 1, section : 0)
+        }
+        /*
+        if coordinator.proposal.operation == .move {
+            // in func?
+            let items = coordinator.items
+            if items.count == 1 {
+                let item = items.first
+                let sourceIndexPath = item?.sourceIndexPath
+                var dIP = destIndexPath
+                
+            }
+        }
+ */
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        if collection_view.hasActiveDrag {
+            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        return UICollectionViewDropProposal(operation: .forbidden)
+    }
 }
 
