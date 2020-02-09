@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
 
-    var items = ["puzz000", "puzz001", "puzz002", "puzz003"]
+    var pieces = ["puzz000", "puzz001", "puzz002", "puzz003"]
     //var itemsImg: [UIImage?] = []
     var rows = 2
     var cols = 2
@@ -25,14 +25,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collection_view.dragDelegate = self
         collection_view.dropDelegate = self
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return pieces.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        let img = items[indexPath.item]
+        let img = pieces[indexPath.item]
         cell.cellImage.image = UIImage(named: img)
         return cell
     }
@@ -58,7 +58,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let item = self.items[indexPath.row]
+        let item = self.pieces[indexPath.row]
         
         let itemProvider = NSItemProvider(object: item as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
@@ -77,18 +77,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let row = collectionView.numberOfItems(inSection: 0)
             destIndexPath = IndexPath(item: row - 1, section : 0)
         }
-        /*
+
         if coordinator.proposal.operation == .move {
-            // in func?
-            let items = coordinator.items
-            if items.count == 1 {
-                let item = items.first
-                let sourceIndexPath = item?.sourceIndexPath
-                var dIP = destIndexPath
-                
+            if let item = coordinator.items.first, let srcIndexPath = item.sourceIndexPath {
+                collectionView.performBatchUpdates ({
+                    pieces.swapAt(srcIndexPath.item, destIndexPath.item)
+                    collectionView.reloadItems(at: [srcIndexPath, destIndexPath])
+                }, completion: nil)
+                coordinator.drop(item.dragItem, toItemAt: destIndexPath)
             }
         }
- */
     }
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
