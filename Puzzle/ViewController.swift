@@ -12,6 +12,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     var pieces = ["puzz000", "puzz001", "puzz002", "puzz003"]
     //var itemsImg: [UIImage?] = []
+    var pieces_shuffled: [String] = []
     var rows = 2
     var cols = 2
     
@@ -21,6 +22,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //itemsImg =  items.map { UIImage(named: $0) }
+        pieces_shuffled = pieces.shuffled()
         collection_view.dragInteractionEnabled = true
         collection_view.dragDelegate = self
         collection_view.dropDelegate = self
@@ -32,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        let img = pieces[indexPath.item]
+        let img = pieces_shuffled[indexPath.item]
         cell.cellImage.image = UIImage(named: img)
         return cell
     }
@@ -58,7 +60,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let item = self.pieces[indexPath.row]
+        let item = self.pieces_shuffled[indexPath.row]
         
         let itemProvider = NSItemProvider(object: item as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
@@ -81,11 +83,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if coordinator.proposal.operation == .move {
             if let item = coordinator.items.first, let srcIndexPath = item.sourceIndexPath {
                 collectionView.performBatchUpdates ({
-                    pieces.swapAt(srcIndexPath.item, destIndexPath.item)
+                    pieces_shuffled.swapAt(srcIndexPath.item, destIndexPath.item)
                     collectionView.reloadItems(at: [srcIndexPath, destIndexPath])
                 }, completion: nil)
                 coordinator.drop(item.dragItem, toItemAt: destIndexPath)
             }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
+        if pieces_shuffled == pieces {
+            print("SOLVED !!")
+            
         }
     }
     
