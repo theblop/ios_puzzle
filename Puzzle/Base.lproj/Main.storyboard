@@ -64,16 +64,35 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1e-0s-CDX">
+                                    <rect key="frame" x="328" y="8" width="39" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48k-5a-YFa">
+                                    <rect key="frame" x="246" y="8" width="82" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="xN4-pq-aHH" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="39k-Tn-DDb"/>
+                                <constraint firstItem="J1e-0s-CDX" firstAttribute="leading" secondItem="48k-5a-YFa" secondAttribute="trailing" id="4Go-Vo-bfP"/>
                                 <constraint firstItem="QmA-cl-deB" firstAttribute="leading" secondItem="cpl-3B-7EZ" secondAttribute="leadingMargin" id="NnH-2Y-RoF"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="QmA-cl-deB" secondAttribute="bottom" id="S61-te-H1J"/>
+                                <constraint firstItem="48k-5a-YFa" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="Sao-7B-CS5"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="xN4-pq-aHH" secondAttribute="bottom" id="eRZ-cr-rgw"/>
                                 <constraint firstItem="xN4-pq-aHH" firstAttribute="leading" secondItem="QmA-cl-deB" secondAttribute="trailing" id="gZO-8s-7FP"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="48k-5a-YFa" secondAttribute="bottom" id="jgf-77-UEv"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="J1e-0s-CDX" secondAttribute="bottom" id="llj-by-4w6"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="J1e-0s-CDX" secondAttribute="trailing" id="qQ5-Zb-14l"/>
+                                <constraint firstItem="J1e-0s-CDX" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="sIO-ng-Tow"/>
                                 <constraint firstItem="QmA-cl-deB" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="zac-04-gpT"/>
                             </constraints>
                             <connections>
+                                <outlet property="bestScoreLabel" destination="J1e-0s-CDX" id="kUy-oe-ec1"/>
                                 <outlet property="timerLabel" destination="xN4-pq-aHH" id="H66-Es-tUR"/>
                             </connections>
                         </collectionReusableView>

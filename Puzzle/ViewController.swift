@@ -16,6 +16,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var rows = 2
     var cols = 2
     
+    let defaults = UserDefaults.standard
+    
     var myTimer: Timer!
     var timerSeconds = 0
     
@@ -99,7 +101,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if pieces_shuffled == pieces {
             print("SOLVED !!")
             endTimer()
-          
+            let bestScore = view.viewWithTag(20) as! UILabel
+            bestScore.text = String(timerSeconds)
+            defaults.set(bestScore.text, forKey: "bestScore")
         }
     }
     
@@ -113,6 +117,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as? HeaderView {
             header.timerLabel.text = "0"
+            //let bestScore = view.viewWithTag(20) as! UILabel
+            let best = defaults.integer(forKey: "bestScore")
+            header.bestScoreLabel.text = best != 0 ? String(best) : ""
             return header
         }
         return UICollectionReusableView()

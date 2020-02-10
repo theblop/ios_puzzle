@@ -10,5 +10,6 @@ import UIKit
 
 class HeaderView: UICollectionReusableView {
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var bestScoreLabel: UILabel!
     
 }
