@@ -16,6 +16,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var rows = 2
     var cols = 2
     
+    var myTimer: Timer!
+    var timerSeconds = 0
+    
     @IBOutlet var collection_view: UICollectionView!
     
     override func viewDidLoad() {
@@ -26,6 +29,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collection_view.dragInteractionEnabled = true
         collection_view.dragDelegate = self
         collection_view.dropDelegate = self
+        startTimer()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -66,12 +70,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = item
 
-        print("DRAG")
+        //print("DRAG")
         return [dragItem]
     }
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-        print("DROP")
+        //print("DROP")
         var destIndexPath: IndexPath
         if let IndexPath = coordinator.destinationIndexPath {
             destIndexPath = IndexPath
@@ -94,7 +98,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
         if pieces_shuffled == pieces {
             print("SOLVED !!")
-            
+            endTimer()
+          
         }
     }
     
@@ -103,6 +108,28 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
         }
         return UICollectionViewDropProposal(operation: .forbidden)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as? HeaderView {
+            header.timerLabel.text = "0"
+            return header
+        }
+        return UICollectionReusableView()
+    }
+    
+    func startTimer() {
+        myTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTime() {
+        timerSeconds += 1
+        let timerLabel = view.viewWithTag(10) as! UILabel
+        timerLabel.text = String(timerSeconds)
+    }
+    
+    func endTimer() {
+        myTimer.invalidate()
     }
 }
 
