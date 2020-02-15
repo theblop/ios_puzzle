@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MenuViewController: UICollectionViewController {
+class MenuViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var puzzles: [Puzzle] = []
    
@@ -25,7 +25,26 @@ class MenuViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         puzzles.append(Puzzle(name: "puzz", size: 4))
-        puzzles.append(Puzzle(name: "puzz", size: 4))
+        
+        for puzzname in [
+            "bryce_canyon",
+            "cessange_rainbow",
+            "cessange_sunrise",
+            "grand_canyon.jpg",
+            "kockelscheuer_autumn",
+            "kockelscheuer_happy",
+            "kockelscheuer_winter",
+            "nz_cook",
+            "nz_hills",
+            "nz_rainbow",
+            "nz_sunset",
+            "slovenia_lake",
+            "slovenia_lake2",
+            "vosges_iron",
+        ] {
+            puzzles.append(Puzzle(name: puzzname, size: 9))
+        }
+        
     }
 
     /*
@@ -52,7 +71,7 @@ class MenuViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MenuCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as! MenuCell
     
         // Configure the cell
         let puzzle = puzzles[indexPath.row]
@@ -92,5 +111,13 @@ class MenuViewController: UICollectionViewController {
     
     }
     */
+    
+    // set cell size based on number of tiles:
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var w = view.frame.size.width
+        w /= CGFloat(3)
+        
+        return CGSize(width: w, height: w)
+    }
 
 }
