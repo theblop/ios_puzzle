@@ -45,9 +45,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return cell
     }
 
+    /*
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
     }
+ */
 
     // set cellview cell margins to 0:
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

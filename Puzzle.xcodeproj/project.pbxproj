@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DF6C99A423F07D5900164008 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C99A323F07D5900164008 /* HeaderView.swift */; };
+		DF6C99A823F435DA00164008 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C99A723F435DA00164008 /* MenuViewController.swift */; };
+		DF6C99AA23F4507400164008 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C99A923F4507400164008 /* Puzzle.swift */; };
+		DF6C99AC23F6279700164008 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C99AB23F6279700164008 /* MenuCell.swift */; };
 		DFEE22B323E275410086FB82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEE22B223E275410086FB82 /* AppDelegate.swift */; };
 		DFEE22B523E275410086FB82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEE22B423E275410086FB82 /* SceneDelegate.swift */; };
 		DFEE22B723E275410086FB82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEE22B623E275410086FB82 /* ViewController.swift */; };
@@ -19,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		DF6C99A323F07D5900164008 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		DF6C99A723F435DA00164008 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		DF6C99A923F4507400164008 /* Puzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
+		DF6C99AB23F6279700164008 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		DFEE22AF23E275410086FB82 /* Puzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Puzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEE22B223E275410086FB82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFEE22B423E275410086FB82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,12 +69,15 @@
 				DFEE22B223E275410086FB82 /* AppDelegate.swift */,
 				DFEE22B423E275410086FB82 /* SceneDelegate.swift */,
 				DFEE22B623E275410086FB82 /* ViewController.swift */,
+				DF6C99A723F435DA00164008 /* MenuViewController.swift */,
 				DFEE22B823E275410086FB82 /* Main.storyboard */,
 				DFEE22BB23E275420086FB82 /* Assets.xcassets */,
 				DFEE22BD23E275420086FB82 /* LaunchScreen.storyboard */,
 				DFEE22C023E275420086FB82 /* Info.plist */,
 				DFEE22C623E282C50086FB82 /* CollectionViewCell.swift */,
+				DF6C99AB23F6279700164008 /* MenuCell.swift */,
 				DF6C99A323F07D5900164008 /* HeaderView.swift */,
+				DF6C99A923F4507400164008 /* Puzzle.swift */,
 			);
 			path = Puzzle;
 			sourceTree = "<group>";
@@ -145,9 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFEE22B723E275410086FB82 /* ViewController.swift in Sources */,
+				DF6C99AA23F4507400164008 /* Puzzle.swift in Sources */,
+				DF6C99A823F435DA00164008 /* MenuViewController.swift in Sources */,
 				DFEE22B323E275410086FB82 /* AppDelegate.swift in Sources */,
 				DFEE22C723E282C50086FB82 /* CollectionViewCell.swift in Sources */,
 				DF6C99A423F07D5900164008 /* HeaderView.swift in Sources */,
+				DF6C99AC23F6279700164008 /* MenuCell.swift in Sources */,
 				DFEE22B523E275410086FB82 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
