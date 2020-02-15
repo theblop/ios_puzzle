@@ -24,14 +24,13 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        puzzles.append(Puzzle(name: "puzz", size: 4))
-        
+               
         for puzzname in [
             "bryce_canyon",
             "cessange_rainbow",
             "cessange_sunrise",
             "grand_canyon.jpg",
-            "kockelscheuer_autumn",
+            //"kockelscheuer_autumn",
             "kockelscheuer_happy",
             "kockelscheuer_winter",
             "nz_cook",
@@ -112,10 +111,10 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     */
     
-    // set cell size based on number of tiles:
+    // set number of cells per row:
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var w = view.frame.size.width
-        w /= CGFloat(3)
+        w /= 4.0
         
         return CGSize(width: w, height: w)
     }

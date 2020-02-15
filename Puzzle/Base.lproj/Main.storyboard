@@ -15,30 +15,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="krA-nU-3vN">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="krA-nU-3vN">
                             <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="100"/>
                             <size key="footerReferenceSize" width="50" height="50"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuCell" id="bdx-oW-43y" customClass="MenuCell" customModule="Puzzle" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="50" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="100" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vg9-5K-mZD">
-                                            <rect key="frame" x="14" y="20" width="155" height="160"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vg9-5K-mZD">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="Vg9-5K-mZD" firstAttribute="leading" secondItem="bdx-oW-43y" secondAttribute="leadingMargin" id="Bmb-hX-SB5"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="Vg9-5K-mZD" secondAttribute="bottom" id="GgC-hD-Sz3"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Vg9-5K-mZD" secondAttribute="trailing" id="QD3-05-FRN"/>
-                                    <constraint firstItem="Vg9-5K-mZD" firstAttribute="top" secondItem="bdx-oW-43y" secondAttribute="topMargin" id="YG1-4J-RvO"/>
+                                    <constraint firstItem="Vg9-5K-mZD" firstAttribute="top" secondItem="bdx-oW-43y" secondAttribute="top" id="5bW-iB-0Eb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vg9-5K-mZD" secondAttribute="trailing" id="BRp-6D-3O6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vg9-5K-mZD" secondAttribute="bottom" id="NBV-iu-w2T"/>
+                                    <constraint firstItem="Vg9-5K-mZD" firstAttribute="leading" secondItem="bdx-oW-43y" secondAttribute="leading" id="d8C-h9-NpX"/>
+                                    <constraint firstItem="Vg9-5K-mZD" firstAttribute="centerY" secondItem="bdx-oW-43y" secondAttribute="centerY" id="r3k-A2-aQV"/>
+                                    <constraint firstItem="Vg9-5K-mZD" firstAttribute="centerX" secondItem="bdx-oW-43y" secondAttribute="centerX" id="v0P-Na-qkR"/>
                                 </constraints>
                                 <size key="customSize" width="200" height="200"/>
                                 <connections>
@@ -47,23 +49,24 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OyM-fl-6VI">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puzzle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihl-p6-QPb">
-                                    <rect key="frame" x="162" y="14.5" width="51" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puzzle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihl-p6-QPb">
+                                    <rect key="frame" x="152" y="35" width="71.5" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Ihl-p6-QPb" firstAttribute="centerX" secondItem="OyM-fl-6VI" secondAttribute="centerX" id="Y1H-cS-EtZ"/>
                                 <constraint firstItem="Ihl-p6-QPb" firstAttribute="centerY" secondItem="OyM-fl-6VI" secondAttribute="centerY" id="jUZ-M8-8AB"/>
                             </constraints>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="a75-ch-nLr">
-                            <rect key="frame" x="0.0" y="250" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="300" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vC-ME-rSK">
