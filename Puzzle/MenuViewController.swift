@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 class MenuViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var puzzles: [Puzzle] = []
+    //var puzzle_idx = 0
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,6 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
             "cessange_rainbow",
             "cessange_sunrise",
             "grand_canyon.jpg",
-            //"kockelscheuer_autumn",
             "kockelscheuer_happy",
             "kockelscheuer_winter",
             "nz_cook",
@@ -46,16 +46,23 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+    
+        if let cell = sender as? UICollectionViewCell,
+            let indexPath = self.collectionView.indexPath(for: cell) {
+            let vc = segue.destination as! ViewController
+            vc.puzzle = puzzles[indexPath.row]
+        }
+        //    let vc = segue.destination as! ViewController
+    //    vc.puzzle = puzzles[puzzle_idx]
     }
-    */
-
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -81,7 +88,12 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
 
     // MARK: UICollectionViewDelegate
-
+    /*
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.puzzle_idx = indexPath.item
+    }
+     */
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {

@@ -10,11 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
 
-    var pieces = ["puzz000", "puzz001", "puzz002", "puzz003"]
-    //var itemsImg: [UIImage?] = []
-    var pieces_shuffled: [String] = []
-    var rows = 2
-    var cols = 2
+    var puzzle: Puzzle?
     
     let defaults = UserDefaults.standard
     
@@ -26,8 +22,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //itemsImg =  items.map { UIImage(named: $0) }
-        pieces_shuffled = pieces.shuffled()
         collection_view.dragInteractionEnabled = true
         collection_view.dragDelegate = self
         collection_view.dropDelegate = self
@@ -35,12 +29,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pieces.count
+        return puzzle!.size
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        let img = pieces_shuffled[indexPath.item]
+        let img = puzzle!.pieces_shuffled[indexPath.item]
+        print("img=" + img)
         cell.cellImage.image = UIImage(named: img)
         return cell
     }
@@ -62,13 +57,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // set cell size based on number of tiles:
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var w = view.frame.size.width
-        w /= CGFloat(cols)
+        w /= CGFloat(Double(puzzle!.size).squareRoot())
+        //print("cell width: \(w)")
         
         return CGSize(width: w, height: w)
     }
     
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let item = self.pieces_shuffled[indexPath.row]
+        let item = puzzle!.pieces_shuffled[indexPath.row]
         
         let itemProvider = NSItemProvider(object: item as NSString)
         let dragItem = UIDragItem(itemProvider: itemProvider)
@@ -91,7 +87,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if coordinator.proposal.operation == .move {
             if let item = coordinator.items.first, let srcIndexPath = item.sourceIndexPath {
                 collectionView.performBatchUpdates ({
-                    pieces_shuffled.swapAt(srcIndexPath.item, destIndexPath.item)
+                    puzzle!.pieces_shuffled.swapAt(srcIndexPath.item, destIndexPath.item)
                     collectionView.reloadItems(at: [srcIndexPath, destIndexPath])
                 }, completion: nil)
                 coordinator.drop(item.dragItem, toItemAt: destIndexPath)
@@ -100,12 +96,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
-        if pieces_shuffled == pieces {
+        if puzzle!.pieces_shuffled == puzzle!.pieces {
             print("SOLVED !!")
             endTimer()
             let bestScore = view.viewWithTag(20) as! UILabel
             bestScore.text = String(timerSeconds)
-            defaults.set(bestScore.text, forKey: "bestScore")
+            defaults.set(bestScore.text, forKey: "bestScore." + puzzle!.name)
         }
     }
     
@@ -119,8 +115,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as? HeaderView {
             header.timerLabel.text = "0"
-            //let bestScore = view.viewWithTag(20) as! UILabel
-            let best = defaults.integer(forKey: "bestScore")
+            let best = defaults.integer(forKey: "bestScore." + puzzle!.name)
             header.bestScoreLabel.text = best != 0 ? String(best) : ""
             return header
         }
