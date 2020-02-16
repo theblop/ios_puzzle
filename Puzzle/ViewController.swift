@@ -35,7 +35,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         let img = puzzle!.pieces_shuffled[indexPath.item]
-        print("img=" + img)
+        //print("img=" + img)
         cell.cellImage.image = UIImage(named: img)
         return cell
     }
@@ -92,12 +92,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 }, completion: nil)
                 coordinator.drop(item.dragItem, toItemAt: destIndexPath)
             }
+            collectionView.reloadData()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
         if puzzle!.pieces_shuffled == puzzle!.pieces {
-            print("SOLVED !!")
+            //print("SOLVED !!")
             endTimer()
             let bestScore = view.viewWithTag(20) as! UILabel
             bestScore.text = String(timerSeconds)
