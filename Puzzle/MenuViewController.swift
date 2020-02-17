@@ -27,7 +27,6 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
         // Do any additional setup after loading the view.
                
         for puzzname in [
-            "bryce_canyon",
             "cessange_rainbow",
             "cessange_sunrise",
             "grand_canyon.jpg",
@@ -127,8 +126,14 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     // set number of cells per row:
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var w = view.frame.size.width
-        w /= 4.0
+        //var w = view.frame.size.width
+        //w /= 4.0
+        
+        let n:CGFloat = 3.0
+        let space:CGFloat = 10.0
+        
+        let total_space = (n+2) * space
+        let w = (collectionView.bounds.width - total_space) / n
         
         return CGSize(width: w, height: w)
     }
