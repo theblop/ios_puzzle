@@ -45,7 +45,7 @@
                                 <size key="customSize" width="200" height="200"/>
                                 <connections>
                                     <outlet property="imageView" destination="Vg9-5K-mZD" id="Apk-di-F2C"/>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="showpuzzle" id="geR-KK-2zp"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="guQ-eY-81Q"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -65,7 +65,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Puzzle" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fZD-qm-QUY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="qYH-q6-8hq">
@@ -156,14 +156,16 @@
                             <outlet property="dropDelegate" destination="BYZ-38-t0r" id="If4-h5-dei"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="19C-Dw-svc"/>
+                    <navigationItem key="navigationItem" id="19C-Dw-svc">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="eNf-PH-LfE"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collection_view" destination="fZD-qm-QUY" id="ti5-Gk-SeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2274" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2NP-Z8-Wl6">

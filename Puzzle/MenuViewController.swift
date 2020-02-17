@@ -56,6 +56,8 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
     
         if let cell = sender as? UICollectionViewCell,
             let indexPath = self.collectionView.indexPath(for: cell) {
+            //let nav = segue.destination as! UINavigationController
+            //let vc = nav.topViewController as! ViewController
             let vc = segue.destination as! ViewController
             vc.puzzle = puzzles[indexPath.row]
         }
