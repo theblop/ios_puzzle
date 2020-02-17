@@ -103,6 +103,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let bestScore = view.viewWithTag(20) as! UILabel
             bestScore.text = String(timerSeconds)
             defaults.set(bestScore.text, forKey: "bestScore." + puzzle!.name)
+            
+            let trophy = view.viewWithTag(100) as! UILabel
+            trophy.isHidden = false
         }
     }
     

@@ -128,10 +128,18 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏆🏆🏆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-tA-Ytv">
+                                    <rect key="frame" x="148.5" y="8" width="78" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="xN4-pq-aHH" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="39k-Tn-DDb"/>
                                 <constraint firstItem="J1e-0s-CDX" firstAttribute="leading" secondItem="48k-5a-YFa" secondAttribute="trailing" id="4Go-Vo-bfP"/>
+                                <constraint firstItem="Sgc-tA-Ytv" firstAttribute="centerX" secondItem="cpl-3B-7EZ" secondAttribute="centerX" id="7BE-YC-ZrY"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="Sgc-tA-Ytv" secondAttribute="bottom" id="AGw-2I-mNJ"/>
                                 <constraint firstItem="QmA-cl-deB" firstAttribute="leading" secondItem="cpl-3B-7EZ" secondAttribute="leadingMargin" id="NnH-2Y-RoF"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="QmA-cl-deB" secondAttribute="bottom" id="S61-te-H1J"/>
                                 <constraint firstItem="48k-5a-YFa" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="Sao-7B-CS5"/>
@@ -141,6 +149,7 @@
                                 <constraint firstAttribute="bottomMargin" secondItem="J1e-0s-CDX" secondAttribute="bottom" id="llj-by-4w6"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="J1e-0s-CDX" secondAttribute="trailing" id="qQ5-Zb-14l"/>
                                 <constraint firstItem="J1e-0s-CDX" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="sIO-ng-Tow"/>
+                                <constraint firstItem="Sgc-tA-Ytv" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="ueC-L3-kbE"/>
                                 <constraint firstItem="QmA-cl-deB" firstAttribute="top" secondItem="cpl-3B-7EZ" secondAttribute="topMargin" id="zac-04-gpT"/>
                             </constraints>
                             <connections>
