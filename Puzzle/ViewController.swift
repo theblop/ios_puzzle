@@ -25,6 +25,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collection_view.dragInteractionEnabled = true
         collection_view.dragDelegate = self
         collection_view.dropDelegate = self
+        puzzle?.shuffle()
         startTimer()
     }
     
@@ -100,9 +101,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if puzzle!.pieces_shuffled == puzzle!.pieces {
             //print("SOLVED !!")
             endTimer()
-            let bestScore = view.viewWithTag(20) as! UILabel
-            bestScore.text = String(timerSeconds)
-            defaults.set(bestScore.text, forKey: "bestScore." + puzzle!.name)
+            let oldBestScore = defaults.integer(forKey: "bestScore." + puzzle!.name)
+            if oldBestScore == 0 || timerSeconds < Int(oldBestScore) {
+                let bestScore = view.viewWithTag(20) as! UILabel
+                bestScore.text = String(timerSeconds)
+                defaults.set(bestScore.text, forKey: "bestScore." + puzzle!.name)
+            }
             
             let trophy = view.viewWithTag(100) as! UILabel
             trophy.isHidden = false

@@ -20,4 +20,8 @@ class Puzzle: NSObject {
         self.pieces = (0...size-1).map {name + String(format: "%003d", $0)}
         self.pieces_shuffled = self.pieces.shuffled()
     }
+    
+    func shuffle() {
+        self.pieces_shuffled = self.pieces.shuffled()
+    }
 }
