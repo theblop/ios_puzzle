@@ -1,0 +1,21 @@
+/* Class = "UINavigationItem"; title = "Choose a puzzle"; ObjectID = "3zQ-hG-4t7"; */
+"3zQ-hG-4t7.title" = "Choisissez un puzzle";
+
+/* Class = "UILabel"; text = "Best time: "; ObjectID = "48k-5a-YFa"; */
+"48k-5a-YFa.text" = "Meilleur temps: ";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "eNf-PH-LfE"; */
+"eNf-PH-LfE.title" = "Retour";
+
+/* Class = "UILabel"; text = "Best:"; ObjectID = "J1e-0s-CDX"; */
+"J1e-0s-CDX.text" = "Meilleur:";
+
+/* Class = "UILabel"; text = "Time: "; ObjectID = "QmA-cl-deB"; */
+"QmA-cl-deB.text" = "Temps: ";
+
+/* Class = "UILabel"; text = "🏆🏆🏆"; ObjectID = "Sgc-tA-Ytv"; */
+"Sgc-tA-Ytv.text" = "🏆🏆🏆";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "xN4-pq-aHH"; */
+"xN4-pq-aHH.text" = "0";
+
