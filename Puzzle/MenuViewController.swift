@@ -29,7 +29,7 @@ class MenuViewController: UICollectionViewController, UICollectionViewDelegateFl
         for puzzname in [
             "cessange_rainbow",
             "cessange_sunrise",
-            "grand_canyon.jpg",
+            "grand_canyon",
             "kockelscheuer_happy",
             "kockelscheuer_winter",
             "nz_cook",
